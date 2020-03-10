@@ -1,0 +1,21 @@
+extends ../layouts/common
+block content
+	h1 hello baby
+	a.btn.btn-success.my-2.rounded-0(href="/users/create") New
+	form.d-flex(action="/users/search", method="GET")
+		input.form-control.mr-2.rounded-0(type="text",name="q")
+		button.btn.btn-primary.rounded-0(type="submit") Search
+	.row
+		table.table
+			thead
+				tr
+					th Name
+					th Phone
+					th Views
+				each user in users
+					tr
+						td=  user.name
+						td=  user.phone
+						td 
+							a.btn.btn-primary.rounded-0(href='/users/views/' + user.id) View
+						
